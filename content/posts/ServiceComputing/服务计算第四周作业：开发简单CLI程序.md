@@ -26,7 +26,7 @@ author: "Tifinity"
 
 在命令行中输入的指令为如下形式，：
 
-```
+```bash
 selpg -sstart_page -eend_page [-lline | -f ] [-d dstFile] filename
 ```
 
@@ -37,7 +37,7 @@ selpg -sstart_page -eend_page [-lline | -f ] [-d dstFile] filename
 - -sstartPage：例如`-s10`，表示从第10页开始打印。
 - -eendPage：例如`-e50`，表示打印到50页。
 
-```
+```bash
 selpg -s10 -e50 ..
 ```
 
@@ -51,13 +51,13 @@ selpg -s10 -e50 ..
 
 一些例子：
 
-```
+```bash
 selpg -s1 -e1 input_file
 ```
 
 将input_file的第1页打印到屏幕。
 
-```
+```bash
 selpg -s10 -e20 input_file >output_file
 ```
 
