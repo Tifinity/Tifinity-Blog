@@ -1,7 +1,7 @@
 ---
 title: "YAML学习"
 date: 2019-12-20T23:11:18+08:00
-draft: true
+draft: false
 categories: ["未分类"]
 tags: ["YAML"]
 author: "Tifinity"

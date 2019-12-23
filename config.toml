@@ -45,14 +45,15 @@ preserveTaxonomyNames = true
     avatar = "/images/me/avatar.jpeg"
     subtitle = "种一棵树最好的时间是十年前，其次是现在"    
     cdn_url = ""           # Base CDN URL
-    home_mode = "" # post or other
+    home_mode = ""
 
     google_verification = ""
    
     description = "" # site description
     keywords = "" # site keywords
-
+    # 公安备案
     beian = ""
+    # 百度分析
     baiduAnalytics = ""
 
     license = '本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可'
@@ -72,5 +73,5 @@ preserveTaxonomyNames = true
 	notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
 	verify = false # Verification code
 	avatar = 'mm'
-	placeholder = '说点什么吧...'
+	placeholder = 'どうぞ'
 	visitor = true

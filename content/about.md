@@ -31,7 +31,7 @@ draft: false
 ### NOW
 
 - [ ] 还在起步
-- [ ] 正在进行博客的搬运工作
+- [ ] 正在进行博客的搬运工作（进行中）
 - [ ] 制作网站图标[Favicon](https://realfavicongenerator.net/)
   - apple-touch-icon.png (180x180)
   - favicon-32x32.png (32x32)
@@ -50,6 +50,8 @@ draft: false
 - 加入不蒜子流量统计
 
 ### 2019-12-12
+
+> 人生没有白走的路，每一步都算数。	——李宗盛
 
 - 重新开始
 
