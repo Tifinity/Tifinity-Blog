@@ -3,7 +3,8 @@ title: "Unity3D项目十一：简单AR"
 date: 2019-12-19T13:02:33+08:00
 draft: false
 tags: ["Unity3d", "AR"] 
-categories: ["Unity3D"]             
+categories: ["Unity3D"]    
+featured_image: https://raw.githubusercontent.com/gohugoio/hugoDocs/master/content/en/news/0.48-relnotes/featured-hugo-48-poster.png  
 author: "Tifinity"  
 ---
 

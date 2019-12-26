@@ -6,7 +6,9 @@ draft: false
 
 # Tifinity-Blog
 
-这是一个基于Hugo，部署在GitPage的个人博客网站
+这是一个基于Hugo，部署在GitPage的个人博客网站。
+
+这里记录博客站的搭建，维护过程。
 
 
 
@@ -31,15 +33,18 @@ draft: false
 ### NOW
 
 - [ ] 还在起步
-- [ ] 正在进行博客的搬运工作（进行中）
-- [ ] 制作网站图标[Favicon](https://realfavicongenerator.net/)
-  - apple-touch-icon.png (180x180)
-  - favicon-32x32.png (32x32)
-  - favicon-16x16.png (16x16)
-  - mstile-150x150.png (150x150)
-  - android-chrome-192x192.png (192x192)
-  - android-chrome-512x512.png (512x512)
+
+- [ ] 正在进行博客的搬运工作（持续进行中）
+
+- [x] 制作网站图标[Favicon](https://realfavicongenerator.net/)
+  
 - [ ] 放自己的背景图
+
+- [ ] 文章中图片与文字对齐
+
+  
+
+### 2019-12-26
 
 
 
