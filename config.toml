@@ -41,16 +41,16 @@ preserveTaxonomyNames = true
 
 [params]
     since = 2019
-    author = "Tifinity" 
+    author = "Tifinity"
     avatar = "/images/me/avatar.jpeg"
-    subtitle = "种一棵树最好的时间是十年前，其次是现在"    
+    subtitle = "种一棵树最好的时间是十年前，其次是现在"
     cdn_url = ""           # Base CDN URL
     home_mode = ""
 
     google_verification = ""
    
     description = "" # site description
-    keywords = "" # site keywords
+    keywords = ""
     # 公安备案
     beian = ""
     # 百度分析

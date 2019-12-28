@@ -111,15 +111,17 @@ apt下载的包保存在`/var/cache/apt/archives`
 
 未完待续
 
-------
-
-
-
-
-
-
-
 .deb 和 .rpm
+
+
+
+## 2.修改终端提示信息
+
+修改/etc/profile：
+
+![image-20191227124252968](D:\TH\Tifinity-Blog\Tifinity\content\posts\image-20191227124252968.png)
+
+
 
 
 

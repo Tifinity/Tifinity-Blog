@@ -58,7 +58,7 @@ docker images
 
 打开`/etc/default/docker`加上：
 
-~~~
+~~~bash
 DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"
 ~~~
 
@@ -105,7 +105,6 @@ hello-world做的事情就是简单输出一些信息，然后就自动中止。
 ~~~bash
 # --rm表示容器退出时自动删除，-it会创建一个虚拟终端让你可以在容器内进行操作。
 docker run --rm -it pytorch/pytorch
-
 ~~~
 
 ![image-20191216164147004](https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216164147004.png)
@@ -121,7 +120,6 @@ docker ps -a
 docker restart <name>
 # 进入正在运行的容器，在容器中使用exit退出
 docker attach <name>
-
 ~~~
 
 
@@ -164,7 +162,6 @@ ENTRYPOINT ["python3", "manage.py", "runserver","0.0.0.0:9003"]
 ~~~bash
 # -t参数指定镜像名
 docker build -t test
-
 ~~~
 
 新的test镜像就构建好了。
@@ -187,7 +184,6 @@ Ubuntu下：
 sudo apt install python-pip
 sudo pip install docker-compose
 docker-compose --version
-
 ~~~
 
 ![image-20191216152900453](https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216152900453.png)
@@ -214,7 +210,6 @@ web:
     working_dir: /var/www/html
     volumes:
      - wordpress:/var/www/html
-
 ~~~
 
 启动：
@@ -224,7 +219,6 @@ web:
 $ docker-compose up
 # 关闭所有服务
 $ docker-compose stop
-
 ~~~
 
 IPAddress

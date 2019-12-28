@@ -15,8 +15,6 @@ YAML 是 "YAML Ain't a Markup Language"（YAML 不是一种标记语言）的递
 
 YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。
 
-
-
 ### 基本语法
 
 - 大小写敏感
@@ -24,8 +22,6 @@ YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它�
 - 缩进只允许空格
 - 缩进的空格数不重要，只要相同层级的元素左对齐即可
 - '#'表示单行注释
-
-
 
 ### 数据结构
 
@@ -41,8 +37,6 @@ YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它�
       key2: value2
   ~~~
 
-  
-
 - 数组：或序列，列表
 
   ~~~yaml
@@ -50,8 +44,6 @@ YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它�
   - b
   - c
   ~~~
-
-  
 
 - 纯量（scalars）：单个不可分割的值，包括：
 
@@ -64,15 +56,19 @@ YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它�
   null: ~  #使用~表示null
   string:
       - 哈哈
-      - 'Hello world'  #可以使用双引号或者单引号包裹特殊字符
+      - 'Hello world'  
+      #可以使用双引号或者单引号包裹特殊字符
       - newline
-        newline2    #字符串可以拆成多行，每一行会被转化成一个空格
+        newline2    
+        #字符串可以拆成多行，每一行会被转化成一个空格
   date:
-      - 2018-02-17    #日期必须使用ISO 8601格式，即yyyy-MM-dd
-  datetime: 
-      - 2018-02-17T15:02:31+08:00    #时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区
+      - 2018-02-17    
+      #日期必须使用ISO 8601格式，即yyyy-MM-dd
+datetime: 
+      - 2018-02-17T15:02:31+08:00   
+      #时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区
   ~~~
-
+  
   两个感叹号`!!`可以强制转换类型。
 
 
@@ -115,10 +111,10 @@ test:
     database: myapp_test
     <<: *defaults
 
- # 相当于下面
- defaults:
-     adapter:  postgres
-     host:     localhost
+# 相当于下面
+defaults:
+    adapter:  postgres
+    host:     localhost
 
 development:
     database: myapp_development
@@ -130,8 +126,6 @@ test:
     adapter:  postgres
     host:     localhost
 ~~~
-
-
 
 ### 参考资料
 
