@@ -10,14 +10,37 @@ author: "Tifinity"
 
 # Scoop第一次使用过程
 
-在Windows下我们一般怎么安装软件？网上下呗。:anger:
+## 为什么要使用包管理工具？
+
+首先，在Windows下我们一般怎么安装软件？:anger:
 
 1. 百度你要安装的软件
 2. 找到官网或者一个看起来安全一点的地址
 3. 下载一个奇怪的exe
 4. 安装到奇怪的地方
 
-### 安装配置
+仔细想想，我从用Windows开始一直以来都是这样安装软件的，直到开始用Linux的操作系统才对**包管理**有了模糊的概念，不过也只是停留在“Linux跟Windows安装软件的方法有一点不一样”的阶段。
+
+>包管理器又称**软件包管理系统**，它是在电脑中自动安装、配制、卸载和升级[软件包](https://baike.baidu.com/item/软件包)的工具组合，在各种[系统软件](https://baike.baidu.com/item/系统软件)和[应用软件](https://baike.baidu.com/item/应用软件)的安装管理中均有广泛应用。——百度百科
+
+我对Windows电脑软件的管理经历了三个阶段：
+
+1. 腾讯电脑管家
+2. 手动管理+Windows自带的卸载
+3. 发现了Scoop，开始了解包管理工具
+
+Scoop的官方文档上这么写着：
+
+Scoop从命令行以最小的摩擦安装程序。 它试图消除类似的东西：
+
+- 权限弹出窗口
+- GUI向导式安装程序
+- 安装大量程序造成的路径污染
+- 安装和卸载程序产生的意外副作用
+- 查找和安装依赖项的需要
+- 需要执行额外的设置步骤才能获得有效的程序
+
+## 安装配置
 
 首先需要几个环境要求：
 
@@ -41,7 +64,7 @@ iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 
 ![](https://github.com/Tifinity/MyImage/raw/master/Tools/Scoop/1577448318(1).jpg)
 
-### 简单使用
+## 简单使用
 
 你已经看过了help输出的使用说明，如果以后某个指令想不起来也请执行`scoop help`。
 
@@ -89,15 +112,13 @@ scoop bucket add extras https://github.com/lukesampson/scoop-extras
 
 现在打开C:\Users\TIFINITY\scoop，Scoop在这里创建了一个scoop文件夹，Scoop把软件安装在apps中。
 
-### 还需要解决的问题
+## 还需要解决的问题
 
-速度比较慢，因为都是从官网下载。
+下载速度比较慢，因为都是从官网下载，不过可以使用arias2来加速。
 
+Scoop适合安装开源的，比较小的软件，或者是用来配置开发环境，如果是大型软件还是走官方网站⑧:cowboy_hat_face:
 
-
-
-
-### 参考资料
+## 参考资料
 
 [Scoop官网](http://scoop.sh/)
 
