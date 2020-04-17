@@ -2,7 +2,7 @@
 title: "Ubuntu学习"
 date: 2019-12-16T19:00:20+08:00
 draft: false
-categories: ["未分类"]
+categories: ["Linux"]
 tags: ["Ubuntu"]
 ---
 
