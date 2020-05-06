@@ -74,5 +74,7 @@ print("邮件发送成功")
 
 这样一封基本的邮件就可以发出去了，然后更多关于邮件头的设置，以及HTML邮件，带附件的邮件等可以查看：[廖雪峰廖老师的教程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017790702398272)
 
+顺便附上一张我的邮箱截图hhh
 
+![](https://raw.githubusercontent.com/Tifinity/MyImage/master/Python/20200506115514.png)
 

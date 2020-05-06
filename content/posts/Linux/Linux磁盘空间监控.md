@@ -15,7 +15,7 @@ author: "Tifinity"
 
 我要做的工作基本上都是学习这位**天外归云**大佬的：[天外归云的博客](https://www.cnblogs.com/LanTianYou/)，上面引用的也是大佬首页上的话，觉得很有意思hh。下面正式开始。
 
-### 获取磁盘信息
+## 获取磁盘信息
 
 首先Linux查看磁盘空间的命令有两个：
 
@@ -67,7 +67,55 @@ def get_disk_usage_percent():
 
 所以只需计算一下空闲空间和总空间，即可得到磁盘使用率。
 
-### 参考
+## 通知管理员
+
+那么，磁盘空间不足之后，就需要通知管理员了，使用[上一篇博客]([https://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/](https://tifinity.github.io/2020/python如何发送邮件/))的方法发送邮件即可。
+
+Github项目地址：[UsageMonitor](https://github.com/Tifinity/UsageMonitor)
+
+~~~python
+def get_disk_usage_percent():
+    statvfs = os.statvfs('/')
+    # f_frsize: 分栈大小
+    # f_blocks: 文件系统数据块总数
+    # f_bfree: 文件系统可用数据块数
+    total_disk_space = statvfs.f_frsize * statvfs.f_blocks
+    free_disk_space = statvfs.f_frsize * statvfs.f_bfree
+    disk_usage = (total_disk_space - free_disk_space) * 100.0 / total_disk_space
+    disk_usage = int(disk_usage)
+    return disk_usage
+
+def monitor_warning():
+    sender = '1139390530@qq.com' #发送者
+    receivers = ['1139390530@qq.com']  # 接收者
+    subject = '坏球了'
+    content = '坏球了' 
+    email_send.send_mail(sender, receivers, subject, content)
+
+if __name__ == '__main__':
+    while True:
+        disk_usage = get_disk_usage_percent()
+        disk_tip = "硬盘空间使用率（最大100%）："+str(disk_usage)+"%"
+        print(disk_tip)
+        max_usage = 80
+        if disk_usage > max_usage:
+            monitor_warning()
+        time.sleep(10)
+~~~
+
+同样的，除了磁盘空间还可以自己完成CPU，内存等信息的监控和通知。
+
+## 总结
+
+写这样一个程序其实是面试的时候面试官给我布置的"课后作业"，让我完成一个监控服务器磁盘空间的程序并用在项目中，上面的项目简单完成了这个功能，也放进Docker里测试过了，不过还有一个问题就是监控程序保活的问题还没解决，目前正在学习。
+
+然后之后要是真正使用感觉还是用Monit这类监控软件比较好，毕竟自己写的还很粗糙，不过在过程中学习到很多东西，也算是稍微接触了下运维的工作，对自己有好处。
+
+尴尬的是，面试结束后太激动手一抖就把腾讯会议关了，没记下面试官的邮箱😂，要是您看到这篇博客，说明我没偷懒哈·~·😋
+
+
+
+## 参考
 
 [python语言获取linux磁盘使用情况](https://blog.csdn.net/magic_zj00/article/details/7207445)
 
