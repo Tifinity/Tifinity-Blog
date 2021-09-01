@@ -7,6 +7,7 @@ steps:
   image: jojomi/hugo
   commands:
   - echo hello drone
+  - git submodule update --init --recursive
   - ls && pwd
   - hugo --baseUrl="http://tifinity.github.io/"
   when:
