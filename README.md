@@ -2,16 +2,54 @@
 title: "About"
 date: 2019-12-15T17:52:04+08:00
 draft: false
-
 ---
 
 # Tifinity-Blog
 
-这是一个基于Hugo，部署在GitPage的个人博客网站。
+这是一个基于Hugo，部署在GitPage的个人博客网站。这里记录博客站的搭建，维护过程。
 
-这里记录博客站的搭建，维护过程。
+## 如何使用
 
+选择一个静态博客的生成工具，因为现在用 Go，所以选择了同样是 Go 写的 [Hugo](https://www.gohugo.org/)。
 
+~~~bash
+# 通过 brew 安装 hugo
+brew install hugo
+# 查看版本
+hugo version
+hugo v0.87.0+extended darwin/arm64 BuildDate=unknown
+# 创建新站点
+hugo new site demo-site
+~~~
+
+新创建的站点目录结构如下：
+
+~~~bash
+demo-blog					
+├── archetypes			# 原型文件，md文件的模版
+│   └── default.md	
+├── config.toml			# 配置文件
+├── content					# 文章存放于此
+├── data						#	
+├── layouts					#	
+├── static					#	静态资源
+└── themes					# 主题
+~~~
+
+现在用 hugo 创建一篇文章，与直接创建 md 文件的唯一区别就是增加了头部的注释。
+
+~~~bash
+# 创建一篇文章，会自动在当前目录的content下创建
+cd demo-blog && hugo new about.md
+<path>/demo-blog/content/about.md created
+~~~
+
+新文章的头部注释是根据 archetypes 中的 default.md 生成的，包括创建时间，标题，是否是草稿（草稿不会显示在网页上）。更换主题之后原型文件也要更换，在头部注释中可能包含类别，标签，作者等其他信息。
+
+~~~bash
+# 用官方主题库替换站点文件夹的 themes
+git clone --depth 1 --recursive https://github.com/spf13/hugoThemes.git themes
+~~~
 
 ## 感激不尽
 
@@ -27,8 +65,6 @@ draft: false
 
 [Valine](https://valine.js.org/)和[LeanCloud](https://leancloud.cn/) 提供评论系统服务，感谢
 
-
-
 ## 长路漫漫
 
 ### NOW
@@ -42,11 +78,6 @@ draft: false
 - [ ] 放自己的背景图
 
 - [ ] 文章中图片与文字对齐
-
-  
-
-### 2019-12-26
-
 
 
 ### 2019-12-19
@@ -72,11 +103,6 @@ draft: false
 ### 2019-04-26
 
 - 从[wu-kan](https://wu-kan.github.io/)的教程快速启动，搭建基于Jekyll的博客站
-
-- 停止了
-
-  三分钟热是我最大的缺点。
-
 
 
 ## 愚者自知
