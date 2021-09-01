@@ -3,10 +3,12 @@ type: docker
 name: sync-tifinity-io
 
 steps:
-- name: greeting
-  image: alpine
+- name: hugo build
+  image: jojomi/hugo
   commands:
   - echo hello drone
+  - ls && pwd
+  - hugo --baseUrl="http://tifinity.github.io/"
   when:
     branch:
     - master
