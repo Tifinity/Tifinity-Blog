@@ -2,6 +2,7 @@ kind: pipeline
 type: docker
 name: sync-tifinity-io
 
+
 steps:
 - name: hugo build
   image: jojomi/hugo
