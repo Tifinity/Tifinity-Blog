@@ -10,6 +10,11 @@ steps:
   - git submodule update --init --recursive
   - ls && pwd
   - hugo --baseUrl="http://tifinity.github.io/"
+  - cd public
+  - git add .
+  - git commit -m "update blog"
+  - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
+  - git push
   when:
     branch:
     - master
