@@ -12,7 +12,9 @@ steps:
   - echo start clone
   - git version
   - git config --global http.version HTTP/1.1
-  - git clone --recursive git://github.com/Tifinity/Tifinity-Blog.git
+  - git clone git://github.com/Tifinity/Tifinity-Blog.git
+  - cd Tifinity-Blog
+  - git submodule update --init --recursive
   when:
     branch:
     - master
@@ -22,9 +24,9 @@ steps:
   commands:
   - ls && pwd
   - cd Tifinity-Blog
-  - yum install git
   - hugo --baseUrl="http://tifinity.github.io/"
   - cd public
+  - yum install git
   - git config --global http.version HTTP/1.1
   - git add .
   - git commit -m "update blog"
