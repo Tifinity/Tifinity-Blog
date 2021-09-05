@@ -38,7 +38,7 @@ steps:
   - git config --global http.version HTTP/1.1
   - git add .
   - git commit -m "update blog"
-  - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
+# - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
   - git push origin HEAD:master
   when:
     branch:
