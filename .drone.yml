@@ -10,6 +10,7 @@ steps:
   image: alpine/git
   commands:
   - echo start clone
+  - echo $DRONE_GIT_SSH_URL
   - git version
   - git config --global http.version HTTP/1.1
   - git clone git@github.com:Tifinity/Tifinity-Blog.git
@@ -40,7 +41,7 @@ steps:
   - git commit -m "update blog"
 # - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
   - git push origin HEAD:master
-  
+
   when:
     branch:
     - master
