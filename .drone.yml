@@ -5,13 +5,14 @@ name: sync-tifinity-io
 
 steps:
 - name: hugo build
-  image: jojomi/hugo
+  image: alpine
   commands:
   - echo hello drone
   - git version
   - git config --global http.version HTTP/1.1
   - git submodule update --init --recursive
   - ls && pwd
+  - yum install hugo
   - hugo --baseUrl="http://tifinity.github.io/"
   - cd public
   - git add .
