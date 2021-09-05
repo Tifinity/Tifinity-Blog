@@ -13,6 +13,7 @@ steps:
   - git version
   - git config --global http.version HTTP/1.1
   - git clone https://github.com/Tifinity/Tifinity-Blog.git
+  - cd Tifinity-Blog
   - git submodule update --init --recursive
   when:
     branch:
