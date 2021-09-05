@@ -7,7 +7,7 @@ steps:
 - name: hugo build
   image: klakegg/hugo
   commands:
-  - echo hello drone
+  - echo hellodrone
   - git version
   - git config --global http.version HTTP/1.1
   - git submodule update --init --recursive
