@@ -1,9 +1,0 @@
-language: go
-
-go:
-  - tip # The latest version of Go.
-
-install:
-  true
-script:
-  true

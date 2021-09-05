@@ -17,7 +17,7 @@ steps:
   - git add .
   - git commit -m "update blog"
   - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
-  - git push
+  - git push origin HEAD:master
   when:
     branch:
     - master
