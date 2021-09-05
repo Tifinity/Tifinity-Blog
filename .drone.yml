@@ -2,18 +2,29 @@ kind: pipeline
 type: docker
 name: sync-tifinity-io
 
+clone:
+  disable: true
 
 steps:
+- name: clone
+  image: alpine/git
+  commands:
+  - echo start clone
+  - git version
+  - git config --global http.version HTTP/1.1
+  - git clone https://github.com/Tifinity/Tifinity-Blog.git .
+  - git submodule update --init --recursive
+  when:
+    branch:
+    - master
+
 - name: hugo build
   image: klakegg/hugo
   commands:
-  - echo hellodrone
-  - git version
-  - git config --global http.version HTTP/1.1
-  - git submodule update --init --recursive
   - ls && pwd
   - hugo --baseUrl="http://tifinity.github.io/"
   - cd public
+  - git config --global http.version HTTP/1.1
   - git add .
   - git commit -m "update blog"
   - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
