@@ -22,6 +22,7 @@ steps:
   commands:
   - ls && pwd
   - cd Tifinity-Blog
+  - yum install git
   - hugo --baseUrl="http://tifinity.github.io/"
   - cd public
   - git config --global http.version HTTP/1.1
