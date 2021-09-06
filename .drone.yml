@@ -15,31 +15,31 @@ steps:
 #     - chmod 600 $HOME/.ssh/id_rsa
 #     - cat $HOME/.ssh/id_rsa
 
-# - name: clone
-#   image: alpine/git
-#   environment:
-#     SSH_KEY:
-#       from_secret: GIT_PUSH_SSH_KEY
-#   commands:
-#     - mkdir $HOME/.ssh
-#     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
-#     - chmod 600 $HOME/.ssh/id_rsa
-#     - cat $HOME/.ssh/id_rsa
-#     - git clone git@github.com:Tifinity/Tifinity-Blog.git
-#   when:
-#     branch:
-#     - master
-
 - name: clone
-  image: plugins/git-action:1
-  settings:
-    actions:
-      - clone
-    remote: git@github.com:Tifinity/Tifinity-Blog.git
-    branch: master
-    path: /drone/src
-    ssh_key:
-      form_secret: GIT_PUSH_SSH_KEY
+  image: alpine/git
+  environment:
+    SSH_KEY:
+      from_secret: SSH_KEY
+  commands:
+    - mkdir $HOME/.ssh
+    - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
+    - chmod 600 $HOME/.ssh/id_rsa
+    - cat $HOME/.ssh/id_rsa
+    - git clone git@github.com:Tifinity/Tifinity-Blog.git
+  when:
+    branch:
+    - master
+
+# - name: clone
+#   image: plugins/git-action:1
+#   settings:
+#     actions:
+#       - clone
+#     remote: git@github.com:Tifinity/Tifinity-Blog.git
+#     branch: master
+#     path: /drone/src
+#     ssh_key:
+#       form_secret: GIT_PUSH_SSH_KEY
 
 - name: hugo build
   image: klakegg/hugo
