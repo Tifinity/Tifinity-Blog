@@ -6,7 +6,7 @@ clone:
   disable: true
 
 steps:
-- name: clone
+- name: test
   image: alpine/git
   environment:
     SSH_KEY: 
