@@ -1,15 +1,14 @@
 kind: pipeline
 type: docker
 name: sync-tifinity-io
-
+environment:
+    SSH_KEY: 
+      from_secret: git_ssh
 clone:
   disable: true
 
 steps:
 - name: clone
-  environment:
-    SSH_KEY: 
-      from_secret: git_ssh
   image: alpine/git
   commands:
   - echo start clone
