@@ -6,31 +6,12 @@ clone:
   disable: true
 
 steps:
-# - name: ssh
-#   image: alpine
-#   environment:
-#     SSH_KEY:
-#       from_secret: SSH_KEY
-#   commands:
-#     - apk add openssh
-#     - apk add git
-#     - mkdir $HOME/.ssh
-#     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
-#     - chmod 600 $HOME/.ssh/id_rsa
-#     - touch $HOME/.ssh/known_hosts
-#     - chmod 600 $HOME/.ssh/known_hosts
-#     - ssh-keyscan -H github.com > $HOME/.ssh/known_hosts
-#     - cat $HOME/.ssh/id_rsa
-#     - git clone --recursive git@github.com:Tifinity/Tifinity-Blog.git
-
 - name: clone
-  image: centos
+  image: tifinity/blog
   environment:
     SSH_KEY:
       from_secret: SSH_KEY
   commands:
-    - yum install -y git
-    - yum install -y openssh-clients
     - mkdir $HOME/.ssh
     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
     - chmod 600 $HOME/.ssh/id_rsa
@@ -65,12 +46,11 @@ steps:
     - master
 
 - name: publish
-  image: alpine/git
+  image: tifinity/blog
   environment:
     SSH_KEY:
       from_secret: SSH_KEY
   commands:
-    - apk add openssh
     - mkdir $HOME/.ssh
     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
     - chmod 600 $HOME/.ssh/id_rsa
