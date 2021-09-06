@@ -7,28 +7,31 @@ clone:
 
 steps:
 - name: clone
-  image: alpine/git
-  environment:
-    SSH_KEY: 
-      from_secret: git_ssh
-  commands:
-  # write the ssh key.
-  - mkdir /root/.ssh
-  - echo -n "$SSH_KEY" > /root/.ssh/id_rsa
-  - chmod 600 /root/.ssh/id_rsa
-  # add github.com to our known hosts.
-  - touch /root/.ssh/known_hosts
-  - chmod 600 /root/.ssh/known_hosts
-  - ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts 2> /dev/null
-  # start clone
-  - echo start clone
-  - echo $DRONE_GIT_SSH_URL
-  - git version
-  - git config --global http.version HTTP/1.1
-  - git clone --recursive git@github.com:Tifinity/Tifinity-Blog.git
-  when:
-    branch:
-    - master
+  image: plugins/git-action:1
+  settings:
+    actions:
+      - clone
+    remote: git@github.com:Tifinity/Tifinity-Blog.git
+    branch: master
+    path: /drone/src
+    ssh_key:
+      form_secret: git_ssh
+
+# - name: clone
+#   image: alpine/git
+#   environment:
+#     SSH_KEY: 
+#       from_secret: git_ssh
+#   commands:
+#   # start clone
+#   - echo start clone
+#   - echo $DRONE_GIT_SSH_URL
+#   - git version
+#   - git config --global http.version HTTP/1.1
+#   - git clone --recursive git@github.com:Tifinity/Tifinity-Blog.git
+#   when:
+#     branch:
+#     - master
 
 - name: hugo build
   image: klakegg/hugo
