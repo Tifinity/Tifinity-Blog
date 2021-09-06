@@ -82,7 +82,7 @@ steps:
     - git add .
     - git commit -m "update blog"
     - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
-    - git push origin HEAD:master
+    - git push origin HEAD:master -f
   when:
     branch:
     - master
