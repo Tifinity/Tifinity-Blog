@@ -17,6 +17,7 @@ steps:
     ssh_key:
       form_secret: SSH_KEY
 
+      
 - name: hugo build
   image: klakegg/hugo
   commands:
