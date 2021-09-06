@@ -7,7 +7,7 @@ clone:
 
 steps:
 - name: clone1
-  image: alpine:git
+  image: alpine/git
   command:
   - mkdir /root/.ssh
   - echo -e "$SSH_KEY" > /root/.ssh/id_rsa
