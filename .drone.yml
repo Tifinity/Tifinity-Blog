@@ -5,17 +5,34 @@ name: sync-tifinity-io
 clone:
   disable: true
 
-steps:
+environment:
+  SSH_KEY:
+    from_secret: git_ssh
+
+# steps:
+# - name: clone
+#   image: plugins/git-action:1
+#   settings:
+#     actions:
+#       - clone
+#     remote: git@github.com:my-organization/my-repo.git
+#     branch: master
+#     path: /drone/src
+#     ssh_key:
+#       form_secret: secret-with-private-ssh-key
+
 - name: clone
   image: alpine/git
   commands:
+  # - echo "$KEY" > $HOME/.ssh/id_rsa
   - echo start clone
   - echo $DRONE_GIT_SSH_URL
   - git version
   - git config --global http.version HTTP/1.1
-  - git clone git@github.com:Tifinity/Tifinity-Blog.git
-  - cd Tifinity-Blog
-  - git submodule update --init --recursive
+  - git clone --recursive git@github.com:Tifinity/Tifinity-Blog.git
+  settings:
+    ssh_key:
+      from_secret: git_ssh
   when:
     branch:
     - master
@@ -31,20 +48,17 @@ steps:
     branch:
     - master
 
+# push 静态页面到 github
 - name: push github.io
-  image: alpine/git
-  commands:
-  - pwd
-  - cd Tifinity-Blog/public
-  - git config --global http.version HTTP/1.1
-  - git add .
-  - git commit -m "update blog"
-# - git remote set-url origin git@github.com:Tifinity/Tifinity.github.io.git
-  - git push origin HEAD:master
-
-  when:
-    branch:
-    - master
+  image: muxueqz/drone-git-push-by-bash
+  settings: 
+    branch: master
+    remote: git@github.com:Tifinity/Tifinity.github.io.git
+    force: true
+    commit: true
+    path: ./Tifinity-Blog/public
+    ssh_key:
+      from_secret: git_ssh
 
 trigger:
   event:
