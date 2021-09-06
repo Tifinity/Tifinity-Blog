@@ -8,6 +8,8 @@ clone:
 steps:
 - name: clone
   image: plugins/git-action:1
+  commands:
+  - echo $SSH_KEY
   settings:
     actions:
       - clone
@@ -15,7 +17,7 @@ steps:
     branch: master
     path: /drone/src
     ssh_key:
-      form_secret: git_ssh
+      form_secret: SSH_KEY
 
 # - name: clone
 #   image: alpine/git
