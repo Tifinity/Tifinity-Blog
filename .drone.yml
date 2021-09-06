@@ -67,7 +67,7 @@ steps:
     commit: true
     path: ./Tifinity-Blog/public
     ssh_key:
-      from_secret: git_ssh
+      from_secret: SSH_KEY
 
 trigger:
   event:
