@@ -2,17 +2,25 @@ kind: pipeline
 type: docker
 name: sync-tifinity-io
 
-environment:
-  SSH_KEY: 
-    from_secret: git_ssh
-
 clone:
   disable: true
 
 steps:
 - name: clone
   image: alpine/git
+  environment:
+    SSH_KEY: 
+      from_secret: git_ssh
   commands:
+  # write the ssh key.
+  - mkdir /root/.ssh
+  - echo -n "$SSH_KEY" > /root/.ssh/id_rsa
+  - chmod 600 /root/.ssh/id_rsa
+  # add github.com to our known hosts.
+  - touch /root/.ssh/known_hosts
+  - chmod 600 /root/.ssh/known_hosts
+  - ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts 2> /dev/null
+  # start clone
   - echo start clone
   - echo $DRONE_GIT_SSH_URL
   - git version
