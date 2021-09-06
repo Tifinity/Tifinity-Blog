@@ -6,8 +6,17 @@ clone:
   disable: true
 
 steps:
-- name: ssh
-  image: alpine
+# - name: ssh
+#   image: alpine
+  
+#   commands:
+#     - mkdir $HOME/.ssh
+#     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
+#     - chmod 600 $HOME/.ssh/id_rsa
+#     - cat $HOME/.ssh/id_rsa
+
+- name: clone
+  image: alpine/git
   environment:
     SSH_KEY:
       from_secret: GIT_PUSH_SSH_KEY
@@ -15,10 +24,6 @@ steps:
     - mkdir $HOME/.ssh
     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
     - chmod 600 $HOME/.ssh/id_rsa
-
-- name: clone
-  image: alpine/git
-  commands:
     - cat $HOME/.ssh/id_rsa
     - git clone git@github.com:Tifinity/Tifinity-Blog.git
   when:
