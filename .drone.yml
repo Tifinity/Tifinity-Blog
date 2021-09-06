@@ -16,8 +16,8 @@ steps:
   commands:
   # start clone
   - echo start clone
-  - echo ${SSH_KEY}
-  - echo ${test}
+  - echo $SSH_KEY
+  - echo $test
   - echo $CI
   # - echo $DRONE_GIT_SSH_URL
   # - git version
