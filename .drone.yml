@@ -8,8 +8,6 @@ clone:
 steps:
 - name: clone
   image: plugins/git-action:1
-  commands:
-  - echo $SSH_KEY
   settings:
     actions:
       - clone
