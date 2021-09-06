@@ -11,6 +11,8 @@ steps:
   environment:
     git_ssh:
       from_secret: git_ssh
+    SSH_KEY:
+      from_secret: SSH_KEY
   commands:
   - echo $git_ssh
   - echo $SSH_KEY
@@ -24,7 +26,7 @@ steps:
     branch: master
     path: /drone/src
     ssh_key:
-      form_secret: SSH_KEY
+      form_secret: GIT_PUSH_SSH_KEY
 
 - name: hugo build
   image: klakegg/hugo
