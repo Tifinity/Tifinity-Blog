@@ -1,6 +1,6 @@
 [submodule "themes/LeaveIt"]
 	path = themes/LeaveIt
-	url = git@github.com/liuzc/LeaveIt.git
+	url = git@github.com:liuzc/LeaveIt.git
 [submodule "public"]
 	path = public
-	url = git@github.com/Tifinity/Tifinity.github.io.git
+	url = git@github.com:Tifinity/Tifinity.github.io.git
