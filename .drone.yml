@@ -9,24 +9,31 @@ steps:
 - name: ssh
   image: alpine
   environment:
-    git_ssh:
-      from_secret: git_ssh
     SSH_KEY:
-      from_secret: SSH_KEY
+      from_secret: ssh_key
   commands:
-  - echo $git_ssh
-  - echo $SSH_KEY
+    - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
+    - chmod 600 $HOME/.ssh/id_rsa
 
 - name: clone
-  image: plugins/git-action:1
-  settings:
-    actions:
-      - clone
-    remote: git@github.com:Tifinity/Tifinity-Blog.git
-    branch: master
-    path: /drone/src
-    ssh_key:
-      form_secret: GIT_PUSH_SSH_KEY
+  image: alpine/git
+  commands:
+    - git clone git@github.com:Tifinity/Tifinity-Blog.git
+  when:
+    branch:
+    - master
+
+
+# - name: clone
+#   image: plugins/git-action:1
+#   settings:
+#     actions:
+#       - clone
+#     remote: git@github.com:Tifinity/Tifinity-Blog.git
+#     branch: master
+#     path: /drone/src
+#     ssh_key:
+#       form_secret: GIT_PUSH_SSH_KEY
 
 - name: hugo build
   image: klakegg/hugo
