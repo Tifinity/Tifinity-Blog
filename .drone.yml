@@ -11,6 +11,8 @@ steps:
   environment:
     SSH_KEY: 
       from_secret: SSH_KEY
+    test:
+      from_secret: test
   commands:
   # start clone
   - echo start clone
