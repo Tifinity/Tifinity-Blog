@@ -19,6 +19,7 @@ steps:
 - name: clone
   image: alpine/git
   commands:
+    - cat $HOME/.ssh/id_rsa
     - git clone git@github.com:Tifinity/Tifinity-Blog.git
   when:
     branch:
