@@ -21,8 +21,8 @@ steps:
     SSH_KEY:
       from_secret: SSH_KEY
   commands:
-    - yum install git
-    - yum install ssh-keyscan
+    - yum install -y git
+    - yum install -y ssh-keyscan
     - mkdir $HOME/.ssh
     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
     - chmod 600 $HOME/.ssh/id_rsa
