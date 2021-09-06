@@ -16,13 +16,13 @@ steps:
 #     - cat $HOME/.ssh/id_rsa
 
 - name: clone
-  image: ubuntu
+  image: centos
   environment:
     SSH_KEY:
       from_secret: SSH_KEY
   commands:
-    - apt install -y git
-    - apt install -y ssh
+    - yum install -y git
+    - yum install -y openssh-clients
     - mkdir $HOME/.ssh
     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
     - chmod 600 $HOME/.ssh/id_rsa
