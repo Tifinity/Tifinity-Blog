@@ -15,6 +15,7 @@ steps:
   # start clone
   - echo start clone
   - echo ${SSH_KEY}
+  - echo ${test}
   # - echo $DRONE_GIT_SSH_URL
   # - git version
   # - git config --global http.version HTTP/1.1
