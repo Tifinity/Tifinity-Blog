@@ -12,6 +12,7 @@ steps:
     SSH_KEY:
       from_secret: GIT_PUSH_SSH_KEY
   commands:
+    - mkdir $HOME/.ssh
     - echo -e "$SSH_KEY" > $HOME/.ssh/id_rsa
     - chmod 600 $HOME/.ssh/id_rsa
 
