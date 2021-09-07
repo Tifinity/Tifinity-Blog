@@ -42,16 +42,7 @@ steps:
     branch:
     - master
 
-# - name: clone
-#   image: plugins/git-action:1
-#   settings:
-#     actions:
-#       - clone
-#     remote: git@github.com:Tifinity/Tifinity-Blog.git
-#     branch: master
-#     path: /drone/src
-#     ssh_key:
-#       form_secret: GIT_PUSH_SSH_KEY
+
 
 - name: hugo build
   image: klakegg/hugo
@@ -87,6 +78,17 @@ steps:
   when:
     branch:
     - master
+
+# - name: clone
+#   image: plugins/git-action:1
+#   settings:
+#     actions:
+#       - clone
+#     remote: git@github.com:Tifinity/Tifinity-Blog.git
+#     branch: master
+#     path: /drone/src
+#     ssh_key:
+#       form_secret: GIT_PUSH_SSH_KEY
 
 # - name: publish  
 #   image: plugins/gh-pages
