@@ -3,8 +3,6 @@ title: "About"
 date: 2019-12-15T17:52:04+08:00
 draft: false
 ---
-
-
 # Tifinity-Blog
 
 这是一个基于Hugo，部署在GitPage的个人博客网站。这里记录博客站的搭建，维护过程。
