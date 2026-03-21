@@ -54,6 +54,56 @@ cd demo-blog && hugo new about.md
 git clone --depth 1 --recursive https://github.com/spf13/hugoThemes.git themes
 ~~~
 
+## 仓库架构说明
+
+本项目采用 **源码与部署分离** 的架构，涉及两个 GitHub 仓库：
+
+### 仓库关系
+
+| 仓库 | 用途 | 地址 |
+|------|------|------|
+| **Tifinity-Blog** | 源码仓库，包含 Markdown 文章、主题、配置 | 当前仓库 |
+| **Tifinity.github.io** | 部署仓库，包含 Hugo 生成的静态文件 | [github.com/Tifinity/Tifinity.github.io](https://github.com/Tifinity/Tifinity.github.io) |
+
+### 架构图解
+
+```
+Tifinity-Blog (源码)                    Tifinity.github.io (部署)
+├─ content/posts/     ──Hugo构建──►     ├─ index.html
+├─ themes/LeaveIt/    ───────────►     ├─ posts/xxx/index.html
+├─ config.toml        ───────────►     └─ 纯静态 HTML/CSS/JS
+└─ public/ ◄──────────Git子模块─────────┘
+```
+
+访问地址：https://tifinity.github.io/
+
+### GitHub Pages 工作原理
+
+1. **特殊仓库名**：`Tifinity.github.io` 是 GitHub 的 User Pages 仓库
+2. **自动托管**：GitHub 自动为该仓库启用 Pages 功能，从 `master` 分支提供静态文件
+3. **CDN 加速**：GitHub 自动将内容分发到全球 CDN
+
+### 自动化部署流程
+
+1. **写作**：在 `Tifinity-Blog/content/` 目录下写 Markdown 文章
+2. **推送**：代码推送到 `master` 分支
+3. **触发**：Drone CI 检测到推送，自动运行流水线
+4. **构建**：使用 `klakegg/hugo` Docker 镜像生成静态站点
+5. **部署**：将 `public/` 目录（即子模块）强制推送到 `Tifinity.github.io` 的 `master` 分支
+6. **上线**：GitHub Pages 自动更新，博客生效
+
+### 子模块说明
+
+`public/` 目录是 Git 子模块，指向部署仓库：
+
+```bash
+# 初始化子模块（首次克隆后）
+git submodule update --init --recursive
+
+# public/ 目录实际上就是 Tifinity.github.io 仓库
+# 修改 public/ 并提交，等于提交到 Tifinity.github.io
+```
+
 ## 感激不尽
 
 [wu-kan](https://wu-kan.github.io/) 让我第一次接触个人博客站，了解到GithubPages，感谢。
