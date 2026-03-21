@@ -3,15 +3,17 @@ title: "About"
 date: 2019-12-15T17:52:04+08:00
 draft: false
 ---
-
-
 # Tifinity-Blog
 
-这是一个基于Hugo，部署在GitPage的个人博客网站。这里记录博客站的搭建，维护过程。
+https://tifinity.github.io/
+
+我的个人博客，记录平时学习。
+
+博客生成工具为 Hugo，博客托管发布于 GitHub Pages。
 
 ## 如何使用
 
-选择一个静态博客的生成工具，因为现在用 Go，所以选择了同样是 Go 写的 [Hugo](https://www.gohugo.org/)。
+选择一个静态博客的生成工具，选择 [Hugo](https://www.gohugo.org/)，没什么原因，随便选的。
 
 ~~~bash
 # 通过 brew 安装 hugo
