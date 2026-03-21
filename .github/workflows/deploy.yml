@@ -31,7 +31,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/master'
         with:
-          personal_token: ${{ secrets.blog }}
+          deploy_key: ${{ secrets.blog }}
           publish_dir: ./public
           publish_branch: master
           external_repository: Tifinity/Tifinity.github.io
