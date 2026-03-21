@@ -27,6 +27,10 @@ jobs:
       - name: Build
         run: hugo --baseURL="https://tifinity.github.io/"
 
+      # 3.5 禁用 Jekyll（添加 .nojekyll 文件）
+      - name: Disable Jekyll
+        run: touch public/.nojekyll
+
       # 4. 部署到 GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
