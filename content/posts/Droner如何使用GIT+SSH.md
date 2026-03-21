@@ -18,11 +18,7 @@ author: "Tifinity"
 
 随后找到一篇博客，muxueqz 大佬的[静态博客持续集成大法](https://muxueqz.top/my-blog-ci.html)，看到他是自己写了 drone 的插件来定义参数和调用命令的，不过该博客写于2019年，于是我坚信这个步骤应该有并且可能两年时间已经优化了 ssh 的更简单的使用方法，于是又去找别的办法。
 
-在 [Drone官方讨论区](https://discourse.drone.io/) 搜索了一下 git ssh，找到一些帖子：
-
-这两个是 19 年的提问以及解决，还有一些更久远的就没看了
-
-[提问1](https://discourse.drone.io/t/clone-by-ssh-not-http-git-server-port-override/5408/2)  [提问2](https://discourse.drone.io/t/custom-clone-with-ssh/6149)
+在 [Drone官方讨论区](https://discourse.drone.io/) 搜索了一下 git ssh，找到一些帖子，这两个是 19 年的提问以及解决，还有一些更久远的就没看了：[提问1](https://discourse.drone.io/t/clone-by-ssh-not-http-git-server-port-override/5408/2)  [提问2](https://discourse.drone.io/t/custom-clone-with-ssh/6149)
 
 官方在 [github](https://github.com/drone/drone/blob/782688872970bc7dea53f167ce4181458892369e/.drone.sh#L9:L17) 上给出的脚本:
 
