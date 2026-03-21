@@ -1,0 +1,37 @@
+name: Deploy Hugo Blog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出源码（带子模块）
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      # 2. 设置 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.123.0'
+          extended: true
+
+      # 3. 构建
+      - name: Build
+        run: hugo --baseUrl="https://tifinity.github.io/"
+
+      # 4. 部署到 GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master
+          external_repository: Tifinity/Tifinity.github.io

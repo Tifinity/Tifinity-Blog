@@ -1,4 +1,4 @@
-baseURL = "http://tifinity.github.io/"
+baseURL = "https://tifinity.github.io/"
 languageCode = "zh-CN"
 title = "Infinit"
 theme = "LeaveIt"
