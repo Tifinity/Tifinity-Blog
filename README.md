@@ -5,6 +5,8 @@ draft: false
 ---
 # Tifinity-Blog
 
+[![Deploy Hugo Blog](https://github.com/Tifinity/Tifinity-Blog/workflows/Deploy%20Hugo%20Blog/badge.svg)](https://github.com/Tifinity/Tifinity-Blog/actions)
+
 https://tifinity.github.io/
 
 我的个人博客，记录平时学习。
